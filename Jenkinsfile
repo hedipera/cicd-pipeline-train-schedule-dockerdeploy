@@ -29,6 +29,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
+                        //app = docker.build("hedipera/train-schedule") > app.push referenciando a variável que recebeu a imagem buildada, iremos efetuar o push dela com a tag de build number, preenchendo com a env de ambiente do jenkins
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
