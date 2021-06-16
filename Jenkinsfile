@@ -15,6 +15,7 @@ pipeline {
             steps {
                 script {
                     app = docker.build("hedipera/train-schedule")
+                    //irá rodar a imagem brevemente numa sandbox e executar um smoketest. utiliza o plugin do docker commons e docker pipelines
                     app.inside {
                         sh 'echo $(curl localhost:8080)'
                     }
